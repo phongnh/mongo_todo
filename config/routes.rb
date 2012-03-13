@@ -2,7 +2,7 @@ MongoTodo::Application.routes.draw do
   root to: 'lists#index'
 
   resources :lists do
-    resouces :tasks
+    resources :tasks
   end
 
   # The priority is based upon order of creation:
