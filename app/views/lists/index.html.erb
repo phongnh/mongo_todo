@@ -9,7 +9,10 @@
     <tr>
       <td><%= link_to list.name, list_path(list) %></td>
       <td><%= list.description %></td>
-      <td><%= link_to 'Destroy', list_path(list), method: :delete, confirm: 'Are you sure?' %></td>
+      <td>
+        <%= link_to 'Tasks', list_tasks_path(list) %> |
+        <%= link_to 'Destroy', list_path(list), method: :delete, confirm: 'Are you sure?' %>
+      </td>
     </tr>
   <% end -%>
 
