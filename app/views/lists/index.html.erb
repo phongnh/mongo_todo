@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th> </th>
+  </tr>
+
+  <% @lists.each do |list| -%>
+    <tr>
+      <td><%= link_to list.name, list_path(list) %></td>
+      <td><%= list.description %></td>
+      <td><%= link_to 'Destroy', list_path(list), method: :delete, confirm: 'Are you sure?' %></td>
+    </tr>
+  <% end -%>
+
+</table>
+
+<%= link_to 'New Task List', new_list_path %>
