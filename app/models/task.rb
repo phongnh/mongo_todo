@@ -15,6 +15,5 @@ class Task
             presence: true,
             length: { maximum: 255 }
 
-  validates :due,
-            presence: true
+  # validates :due, presence: true
 end
