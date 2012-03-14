@@ -1,9 +1,9 @@
 development:
-  host: localhost
+  # host: localhost
   database: mongo_todo_development
 
 test:
-  host: localhost
+  # host: localhost
   database: mongo_todo_test
 
 production:
