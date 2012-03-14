@@ -13,8 +13,8 @@
         <td><%= link_to list.name, list_path(list) %></td>
         <td><%= list.description %></td>
         <td class='center'>
-          <%= link_to 'Tasks', list_tasks_path(list), class: 'btn btn-info' %>
-          <%= link_to 'Destroy', list_path(list), class: 'btn', method: :delete, confirm: 'Are you sure?' %>
+          <%= link_to 'Tasks', list_tasks_path(list), class: 'btn btn-mini btn-info' %>
+          <%= link_to 'Destroy', list_path(list), class: 'btn btn-mini btn-danger', method: :delete, confirm: 'Are you sure?' %>
         </td>
       </tr>
     <% end -%>
