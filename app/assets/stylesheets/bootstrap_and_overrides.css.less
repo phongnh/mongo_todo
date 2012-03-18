@@ -28,3 +28,32 @@ body { padding-top: 60px; }
     }
   }
 }
+
+/* Special grid styles
+-------------------------------------------------- */
+.show-grid {
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+  [class*="span"] {
+    // background-color: #eee;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+    min-height: 30px;
+    // line-height: 30px;
+  }
+
+  &:hover [class*="span"] {
+    background: #ddd;
+  }
+
+  .show-grid {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    [class*="span"] {
+      // background-color: #ccc;
+    }
+  }
+}

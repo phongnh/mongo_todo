@@ -1,11 +1,13 @@
-<table>
-  <tr>
-    <th>Description</th>
-    <th>Due</th>
-    <th>Completed?</th>
-    <th>Note</th>
-    <th> </th>
-  </tr>
+<table class='table table-striped table-bordered'>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Due</th>
+      <th>Completed?</th>
+      <th>Note</th>
+      <th> </th>
+    </tr>
+  </thead>
 
   <% @tasks.each do |task| -%>
     <tr>
@@ -14,11 +16,11 @@
       <td><%= task.completed? %></td>
       <td><%= task.note %></td>
       <td>
-        <%= link_to 'Destroy', list_task_path(@list, task), method: :delete, confirm: 'Are you sure?' %>
+        <%= link_to 'Destroy', list_task_path(@list, task), class: 'btn btn-mini btn-danger', method: :delete, confirm: 'Are you sure?' %>
       </td>
     </tr>
   <% end -%>
 
 </table>
 
-<%= link_to 'New Task', new_list_task_path(@list) %> | <%= link_to 'Back to Lists', lists_path %>
+<%= link_to 'New Task', new_list_task_path(@list), class: 'btn btn-primary' %>

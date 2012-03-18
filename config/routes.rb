@@ -1,9 +1,12 @@
 MongoTodo::Application.routes.draw do
   root to: 'lists#index'
 
+  resources :tasks, controller: 'single_tasks'
+
   resources :lists do
     resources :tasks
   end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

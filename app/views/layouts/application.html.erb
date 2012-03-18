@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MongoTodo</title>
+    <title>TodoList</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,14 +22,44 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="/">MongoTodo</a>
+          <%= link_to nil, class: 'btn btn-navbar', data: {toggle: 'collapse', target: '.nav-collapse'} do -%>
+            <% 3.times do %>
+              <span class="icon-bar"></span>
+            <% end %>
+          <% end -%>
+          <%= link_to 'Todo', root_path, class: 'brand' %>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="<%= controller_name == 'lists' ? 'active' : 'inactive' %>">
+                <%= link_to 'List', lists_path %>
+              </li>
+              <li class="<%= controller_name.include?('tasks') ? 'active' : 'inactive' %>">
+                <%= link_to 'Task', tasks_path %>
+              </li>
+              <!--
+              <li class="dropdown">
+                <%#= link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do -%>
+                  Task <b class="caret"></b>
+                <%# end -%>
+                <ul class="dropdown-menu">
+                  <li><%#= link_to 'All', all_tasks_path %></li>
+                  <li><%#= link_to 'Ongoing', ongoing_tasks_path %></li>
+                  <li><%#= link_to 'Completed', completed_tasks_path %></li>
+                </ul>
+              </li>
+              -->
+            </ul>
+            <p class='navbar-text pull-right'>
+              Logged in as <%= link_to 'phongnh' %> | <%= link_to 'Log out' %>
+            </p>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="content">
       <div class='container'>
-        <div class="row show-grid">
+        <div class="row">
           <div class="span12">
             <%= yield %>
           </div>

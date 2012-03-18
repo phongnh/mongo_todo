@@ -1,0 +1,31 @@
+<%= render '/shared/flash_messages' %>
+
+<table class='table table-striped table-bordered'>
+
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Due</th>
+      <th>Completed?</th>
+      <th>Note</th>
+      <th> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| -%>
+      <tr>
+        <td><%= link_to task.description, task_path(task) %></td>
+        <td><%= task.due %></td>
+        <td><%= task.completed? %></td>
+        <td><%= task.note %></td>
+        <td>
+          <%= link_to 'Destroy', task_path(task), class: 'btn btn-mini btn-danger', method: :delete, confirm: 'Are you sure?' %>
+        </td>
+      </tr>
+    <% end -%>
+  </tbody>
+
+</table>
+
+<%= link_to 'New Task', new_task_path, class: 'btn btn-primary' %>

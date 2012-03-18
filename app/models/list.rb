@@ -7,7 +7,9 @@ class List
 
   index :name, unique: true
 
-  embeds_many :tasks
+  # embeds_many :tasks
+
+  has_many :tasks, :dependent => :destroy
 
   validates :name,
             presence: true,

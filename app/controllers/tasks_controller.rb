@@ -13,8 +13,6 @@ class TasksController < ApplicationController
   def create
     @task = @list.tasks.new params[:task]
 
-    set_due_field
-
     if @task.save
       redirect_to list_tasks_path(@list), :notice => 'Task was successfully created.'
     else
@@ -33,8 +31,6 @@ class TasksController < ApplicationController
 
   def update
 
-    set_due_field
-
     if @task.update_attributes(params[:task])
       redirect_to list_tasks_path(@list), :notice => 'Task was successfully updated.'
     else
@@ -45,14 +41,6 @@ class TasksController < ApplicationController
   alias :show :edit
 
   private
-
-    def set_due_field
-      @task.due = Date.new(
-        params[:task]['due(1i)'].to_i,
-        params[:task]['due(2i)'].to_i,
-        params[:task]['due(3i)'].to_i
-      )
-    end
 
     def find_list
       @list = List.find params[:list_id]

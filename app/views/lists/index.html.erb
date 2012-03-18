@@ -1,26 +1,30 @@
-<table id='lists' class='table table-striped table-bordered'>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th class='actions'> </th>
-    </tr>
-  </thead>
+<div class="span6 offset3">
+  <%= render '/shared/flash_messages' %>
 
-  <tbody>
-    <% @lists.each do |list| -%>
+  <table id='lists' class='table table-striped table-bordered'>
+    <thead>
       <tr>
-        <td><%= link_to list.name, list_path(list) %></td>
-        <td><%= list.description %></td>
-        <td class='center'>
-          <%= link_to 'Tasks', list_tasks_path(list), class: 'btn btn-mini btn-info' %>
-          <%= link_to 'Destroy', list_path(list), class: 'btn btn-mini btn-danger', method: :delete, confirm: 'Are you sure?' %>
-        </td>
+        <th>Name</th>
+        <th>Description</th>
+        <th class='actions'> </th>
       </tr>
-    <% end -%>
-  </tbody>
+    </thead>
+
+    <tbody>
+      <% @lists.each do |list| -%>
+        <tr>
+          <td><%= link_to list.name, list_path(list) %></td>
+          <td><%= list.description %></td>
+          <td class='center'>
+            <%= link_to 'Tasks', list_tasks_path(list), class: 'btn btn-mini btn-info' %>
+            <%= link_to 'Destroy', list_path(list), class: 'btn btn-mini btn-danger', method: :delete, confirm: 'Are you sure?' %>
+          </td>
+        </tr>
+      <% end -%>
+    </tbody>
 
 
-</table>
+  </table>
 
-<%= link_to 'New List', new_list_path, class: 'btn btn-primary' %>
+  <%= link_to 'New List', new_list_path, class: 'btn btn-primary' %>
+</div>
